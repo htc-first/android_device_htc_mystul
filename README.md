@@ -1,10 +1,7 @@
-android_device_htc_ville
+android_device_htc_totemc2
 ========================
 
-Android device tree for HTC Ville (One S) - Jellybean Branch
+Android device tree for HTC TotemC2 (One VX) - Jellybean Branch
 
 Known issues:
-* Video Camera not working
-* Front Camera not switching properly
-* GPS spam causes high battery drain
-* Wifi calling not available
+* Not booting yet
