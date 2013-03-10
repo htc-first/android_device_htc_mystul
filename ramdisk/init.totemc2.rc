@@ -19,9 +19,20 @@ on emmc-fs
     # msm8960 firmware partitions
     mkdir /tombstones 0771 system system
     mkdir /tombstones/lpass 0771 system system
+    mkdir /system
+    mkdir /data 0771 system system
+    mkdir /cache 0770 system cache
+    mkdir /devlog 0700 root root
+    devwait emmc@system
+    mount ext4 emmc@system /system ro noatime barrier=1
+    devwait emmc@userdata
+#   exec /system/bin/e2fsck -p emmc@userdata
+    mount ext4 emmc@userdata /data nosuid nodev noatime barrier=1 noauto_da_alloc
+    mount ext4 emmc@cache /cache nosuid nodev noatime barrier=1
+    mount ext4 emmc@devlog /devlog nosuid nodev noatime barrier=1
 
-    # mount all mmc partitions
-    mount_all /fstab.totemc2
+    mkdir /vendor               0771 system system
+    mkdir /vendor/firmware      0771 system system
 
 on post-fs-data
     # double check perms and set owner
