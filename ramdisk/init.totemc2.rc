@@ -1,4 +1,4 @@
-import init.ville.usb.rc
+import init.totemc2.usb.rc
 
 on early-init
     mkdir /storage 0050 system sdcard_r
@@ -21,7 +21,7 @@ on emmc-fs
     mkdir /tombstones/lpass 0771 system system
 
     # mount all mmc partitions
-    mount_all /fstab.ville
+    mount_all /fstab.totemc2
 
 on post-fs-data
     # double check perms and set owner
