@@ -74,6 +74,11 @@ PRODUCT_COPY_FILES += \
     device/htc/totemc2/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     device/htc/totemc2/idc/projector_input.idc:system/usr/idc/projector_input.idc
 
+# MSM8930 firmware
+PRODUCT_COPY_FILES += \
+    device/htc/totemc2/firmware/a300_pm4.fw:/system/etc/firmware/a300_pm4.fw \
+    device/htc/totemc2/firmware/a300_pfp.fw:/system/etc/firmware/a300_pfp.fw
+
 # GPS
 #PRODUCT_PACKAGES += \
 #    gps.totemc2 \
