@@ -60,7 +60,8 @@ PRODUCT_COPY_FILES += \
     device/htc/totemc2/dsp/soundimage/srs_global.cfg:system/etc/soundimage/srs_global.cfg
 
 PRODUCT_COPY_FILES += \
-    device/htc/totemc2/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x
+    device/htc/totemc2/dsp/snd_soc_msm/snd_soc_msm_2x:/system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/htc/totemc2/dsp/snd_soc_msm/snd_soc_msm_Sitar:/system/etc/snd_soc_msm/snd_soc_msm_Sitar
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
