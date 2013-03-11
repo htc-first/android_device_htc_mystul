@@ -24,9 +24,9 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/totemc2/overlay
 # Boot ramdisk setup
 PRODUCT_COPY_FILES += \
     device/htc/totemc2/ramdisk/fstab.tc2:root/fstab.tc2 \
-    device/htc/totemc2/ramdisk/init.totemc2.rc:root/init.tc2.rc \
-    device/htc/totemc2/ramdisk/init.totemc2.usb.rc:root/init.tc2.usb.rc \
-    device/htc/totemc2/ramdisk/ueventd.totemc2.rc:root/ueventd.tc2.rc
+    device/htc/totemc2/ramdisk/init.tc2.rc:root/init.tc2.rc \
+    device/htc/totemc2/ramdisk/init.tc2.usb.rc:root/init.tc2.usb.rc \
+    device/htc/totemc2/ramdisk/ueventd.tc2.rc:root/ueventd.tc2.rc
 
 # recovery and custom charging
 PRODUCT_COPY_FILES += \
