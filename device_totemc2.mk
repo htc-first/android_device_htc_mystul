@@ -79,13 +79,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/totemc2/firmware/a300_pm4.fw:/system/etc/firmware/a300_pm4.fw \
     device/htc/totemc2/firmware/a300_pfp.fw:/system/etc/firmware/a300_pfp.fw \
-    device/htc/totemc2/firmware/q6.b00:/system/etc/firmware/q6.b00 \
-    device/htc/totemc2/firmware/q6.b01:/system/etc/firmware/q6.b01 \
-    device/htc/totemc2/firmware/q6.b03:/system/etc/firmware/q6.b03 \
-    device/htc/totemc2/firmware/q6.b04:/system/etc/firmware/q6.b04 \
-    device/htc/totemc2/firmware/q6.b05:/system/etc/firmware/q6.b05 \
-    device/htc/totemc2/firmware/q6.b06:/system/etc/firmware/q6.b06 \
-    device/htc/totemc2/firmware/q6.mdt:/system/etc/firmware/q6.mdt
+    device/htc/totemc2/firmware/modem_fw.b00:/system/etc/firmware/modem_fw.b00 \
+    device/htc/totemc2/firmware/modem_fw.b01:/system/etc/firmware/modem_fw.b01 \
+    device/htc/totemc2/firmware/modem_fw.b03:/system/etc/firmware/modem_fw.b03 \
+    device/htc/totemc2/firmware/modem_fw.b04:/system/etc/firmware/modem_fw.b04 \
+    device/htc/totemc2/firmware/modem_fw.b05:/system/etc/firmware/modem_fw.b05 \
+    device/htc/totemc2/firmware/modem_fw.b06:/system/etc/firmware/modem_fw.b06 \
+    device/htc/totemc2/firmware/modem_fw.mdt:/system/etc/firmware/modem_fw.mdt
 
 # GPS
 #PRODUCT_PACKAGES += \

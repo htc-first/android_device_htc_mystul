@@ -40,7 +40,7 @@ TARGET_PREBUILT_KERNEL := device/htc/totemc2/prebuilt/kernel
 TARGET_KERNEL_CONFIG := tc2_defconfig
 
 # Use libril in the device tree
-# BOARD_PROVIDES_LIBRIL := true
+BOARD_PROVIDES_LIBRIL := true
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 960
