@@ -99,6 +99,18 @@ PRODUCT_COPY_FILES += \
     device/htc/totemc2/firmware/modem_fw.b26:/system/etc/firmware/modem_fw.b26 \
     device/htc/totemc2/firmware/modem_fw.b29:/system/etc/firmware/modem_fw.b29 \
     device/htc/totemc2/firmware/modem_fw.mdt:/system/etc/firmware/modem_fw.mdt \
+    device/htc/totemc2/firmware/modem.b00:/system/etc/firmware/modem.b00 \
+    device/htc/totemc2/firmware/modem.b01:/system/etc/firmware/modem.b01 \
+    device/htc/totemc2/firmware/modem.b02:/system/etc/firmware/modem.b02 \
+    device/htc/totemc2/firmware/modem.b03:/system/etc/firmware/modem.b03 \
+    device/htc/totemc2/firmware/modem.b04:/system/etc/firmware/modem.b04 \
+    device/htc/totemc2/firmware/modem.b05:/system/etc/firmware/modem.b05 \
+    device/htc/totemc2/firmware/modem.b06:/system/etc/firmware/modem.b06 \
+    device/htc/totemc2/firmware/modem.b07:/system/etc/firmware/modem.b07 \
+    device/htc/totemc2/firmware/modem.b08:/system/etc/firmware/modem.b08 \
+    device/htc/totemc2/firmware/modem.b09:/system/etc/firmware/modem.b09 \
+    device/htc/totemc2/firmware/modem.b10:/system/etc/firmware/modem.b10 \
+    device/htc/totemc2/firmware/modem.mdt:/system/etc/firmware/modem.mdt \
     device/htc/totemc2/firmware/q6.b00:/system/etc/firmware/q6.b00 \
     device/htc/totemc2/firmware/q6.b01:/system/etc/firmware/q6.b01 \
     device/htc/totemc2/firmware/q6.b03:/system/etc/firmware/q6.b03 \
