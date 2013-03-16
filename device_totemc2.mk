@@ -47,7 +47,11 @@ PRODUCT_COPY_FILES += \
 
 # wifi config
 PRODUCT_COPY_FILES += \
-    device/htc/totemc2/configs/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf
+    device/htc/totemc2/configs/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf \
+    device/htc/totemc2/firmware/fw_bcm4334.bin:/system/etc/firmware/fw_bcm4334.bin \
+    device/htc/totemc2/firmware/fw_bcm4334_apsta.bin:/system/etc/firmware/fw_bcm4334_apsta.bin \
+    device/htc/totemc2/firmware/fw_bcm4334_p2p.bin:/system/etc/firmware/fw_bcm4334_p2p.bin \
+    device/htc/totemc2/firmware/BCM4334B0_002.001.013.0488.0604.hcd:/system/etc/firmware/BCM4334B0_002.001.013.0488.0604.hcd
 
 # Sound configs
 PRODUCT_COPY_FILES += \
