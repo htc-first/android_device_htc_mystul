@@ -3,14 +3,16 @@ import init.tc2.usb.rc
 on early-init
     mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/sdcard1 0000 system system
 
     # for backwards compatibility
-    symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
-
-    mkdir /mnt/usbdisk 0755 system system
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard1 /external_sd
+    symlink /storage/sdcard1 /mnt/external_sd
 
     export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
 
 on init
     mkdir /devlog 0700 root root
@@ -29,10 +31,6 @@ on post-fs-data
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_done 1
-
-    # prepare kernel for wifi module
-    setprop ro.product.wireless WCN3660
-    write /dev/wcnss_wlan 1
 
 on boot
     # mount debugfs for systrace
@@ -131,20 +129,32 @@ on boot
 
     # load kineto_gan.ko
     insmod /system/lib/modules/kineto_gan.ko
+    insmod /system/lib/modules/bcmdhd.ko
+    insmod /system/lib/modules/ansi_cprng.ko
+    insmod /system/lib/modules/dma_test.ko
+    insmod /system/lib/modules/bluetooth-power.ko
+    insmod /system/lib/modules/gspca_main.ko
+    insmod /system/lib/modules/lcd.ko
+    insmod /system/lib/modules/msm-buspm-dev.ko
+    insmod /system/lib/modules/reset_modem.ko
+    insmod /system/lib/modules/scsi_wait_scan.ko
 
     # cyttsp update
     write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
 
-# Services start here
+#set diag permissions
+    chown radio radio /dev/diag
+    chown radio radio /dev/diag_mdm
+    chown radio radio /dev/htcdiag
+    chown radio radio /dev/diag_arm9
+    chown radio radio /dev/btdiag
+    chmod 0660 /dev/diag
+    chmod 0660 /dev/diag_mdm
+    chmod 0660 /dev/htcdiag
+    chmod 0660 /dev/diag_arm9
+    chmod 0660 /dev/btdiag
 
-service ril-daemon /system/bin/rild
-    class main
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
-    socket rild-htc stream 660 radio system
-    socket aepls001 stream 660 radio system
-    user root
-    group radio cache inet misc audio sdcard_rw log diag
+# Services start here
 
 service abld /system/bin/mm-abl-daemon
     disabled
@@ -260,6 +270,15 @@ on property:init.svc.wpa_supplicant=stopped
 
 on property:persist.thermal.monitor=true
     start thermald
+
+service ril-daemon /system/bin/rild
+    class main
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    socket rild-htc stream 660 radio system
+    socket aepls001 stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_rw log diag
 
 on property:persist.timed.enable=true
     start time_daemon
