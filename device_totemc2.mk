@@ -85,6 +85,7 @@ PRODUCT_COPY_FILES += \
     device/htc/totemc2/firmware/a300_pfp.fw:/system/etc/firmware/a300_pfp.fw \
     device/htc/totemc2/firmware/modem_fw.b00:/system/etc/firmware/modem_fw.b00 \
     device/htc/totemc2/firmware/modem_fw.b01:/system/etc/firmware/modem_fw.b01 \
+    device/htc/totemc2/firmware/modem_fw.b02:/system/etc/firmware/modem_fw.b02 \
     device/htc/totemc2/firmware/modem_fw.b03:/system/etc/firmware/modem_fw.b03 \
     device/htc/totemc2/firmware/modem_fw.b04:/system/etc/firmware/modem_fw.b04 \
     device/htc/totemc2/firmware/modem_fw.b05:/system/etc/firmware/modem_fw.b05 \
