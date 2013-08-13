@@ -4,6 +4,10 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 # Release name
 PRODUCT_RELEASE_NAME := totemc2
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 960
+TARGET_SCREEN_WIDTH := 540
+
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
@@ -14,7 +18,7 @@ $(call inherit-product, device/htc/totemc2/device_totemc2.mk)
 PRODUCT_DEVICE := totemc2
 PRODUCT_NAME := cm_totemc2
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := HTC One VX
+PRODUCT_MODEL := One VX
 PRODUCT_MANUFACTURER := HTC
 
 # Set build fingerprint / ID / Product Name ect.

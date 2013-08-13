@@ -25,36 +25,21 @@
 # against the traditional rules of inheritance).
 
 # inherit from common msm8960
--include device/htc/msm8960-common/BoardConfigCommon.mk
+-include device/htc/s4-common/BoardConfigCommon.mk
+
+# Require bootloader version (commented out for now)
+# TARGET_BOARD_INFO_FILE ?= device/htc/totemc2/board-info.txt
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := totemc2
 
 # Kernel
-BOARD_KERNEL_BASE := 0x80400000
-BOARD_KERNEL_PAGE_SIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8
 BOARD_FORCE_RAMDISK_ADDRESS := 0x81808000
 
-TARGET_PREBUILT_KERNEL := device/htc/totemc2/prebuilt/kernel
 TARGET_KERNEL_CONFIG := tc2_defconfig
 
 # Use libril in the device tree
 BOARD_PROVIDES_LIBRIL := true
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
-
-# HTCLOG
-COMMON_GLOBAL_CFLAGS += -DHTCLOG
-
-# QCOM GPS
-#BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
-#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := totemc2
-
-# Lights
-TARGET_PROVIDES_LIBLIGHTS := true
 
 # Wifi related defines
 WIFI_BAND                        := 802_11_ABG
@@ -103,5 +88,14 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# Use power button as select in recovery
-BOARD_HAS_NO_SELECT_BUTTON := true
+# Recovery
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/totemc2/recovery/kernel
+#TARGET_RECOVERY_FSTAB := device/htc/totemc2/rootdir/etc/fstab.qcom
+
+# TWRP
+DEVICE_RESOLUTION := 540x960
+TW_FLASH_FROM_STORAGE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888"
+TW_INCLUDE_DUMLOCK := true
+TW_INCLUDE_JB_CRYPTO := true

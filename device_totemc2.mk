@@ -16,34 +16,19 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# common msm8960 configs
-$(call inherit-product, device/htc/msm8960-common/msm8960.mk)
+# common S4 configs
+$(call inherit-product, device/htc/s4-common/s4.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/totemc2/overlay
 
 # Boot ramdisk setup
 PRODUCT_COPY_FILES += \
-    device/htc/totemc2/ramdisk/fstab.tc2:root/fstab.tc2 \
-    device/htc/totemc2/ramdisk/init.tc2.rc:root/init.tc2.rc \
-    device/htc/totemc2/ramdisk/init.tc2.usb.rc:root/init.tc2.usb.rc \
-    device/htc/totemc2/ramdisk/ueventd.tc2.rc:root/ueventd.tc2.rc
-
-# recovery and custom charging
-PRODUCT_COPY_FILES += \
-    device/htc/totemc2/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
-    device/htc/totemc2/recovery/sbin/power_test:recovery/root/sbin/power_test \
-    device/htc/totemc2/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
-    device/htc/totemc2/recovery/sbin/detect_key:recovery/root/sbin/detect_key
+    fstab.qcom \
+    init.target.rc \
+    remount.qcom
 
 # HTC BT audio config
 PRODUCT_COPY_FILES += device/htc/totemc2/configs/AudioBTID.csv:system/etc/AudioBTID.csv
-
-# QC thermald config
-PRODUCT_COPY_FILES += device/htc/msm8960-common/configs/thermald.conf:system/etc/thermald.conf
-
-# vold config
-PRODUCT_COPY_FILES += \
-    device/htc/totemc2/configs/vold.fstab:system/etc/vold.fstab
 
 # wifi config
 PRODUCT_COPY_FILES += \
@@ -124,17 +109,13 @@ PRODUCT_COPY_FILES += \
     device/htc/totemc2/firmware/q6.b06:/system/etc/firmware/q6.b06 \
     device/htc/totemc2/firmware/q6.mdt:/system/etc/firmware/q6.mdt
 
-# GPS
-#PRODUCT_PACKAGES += \
-#    gps.totemc2 \
+# Recovery
+PRODUCT_COPY_FILES += \
+    device/htc/totemc2/rootdir/etc/fstab.qcom:recovery/root/fstab.qcom
 
 # Torch
 PRODUCT_PACKAGES += \
     Torch
-
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Extra properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -164,5 +145,5 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 PRODUCT_DEVICE := totemc2
 PRODUCT_NAME := totemc2
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := One S
+PRODUCT_MODEL := One VX 
 PRODUCT_MANUFACTURER := HTC
