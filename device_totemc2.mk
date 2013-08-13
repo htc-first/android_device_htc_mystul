@@ -16,16 +16,29 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# common S4 configs
-$(call inherit-product, device/htc/s4-common/s4.mk)
+# common 8960 configs
+$(call inherit-product, device/htc/msm8960-common/msm8960.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/totemc2/overlay
 
 # Boot ramdisk setup
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.target.rc \
-    remount.qcom
+    remount.qcom \
+    init.qcom.sh \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    ueventd.qcom.rc
+
+# Qualcomm scripts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh \
+    $(LOCAL_PATH)/configs/init.qcom.fm.sh:/system/etc/init.qcom.fm.sh \
+    $(LOCAL_PATH)/configs/init.qcom.post_boot.sh:/system/etc/init.qcom.post_boot.sh \
+    $(LOCAL_PATH)/configs/init.qcom.q6_links.sh:/system/etc/init.qcom.q6_links.sh \
+    $(LOCAL_PATH)/configs/init.qcom.radio_links.sh:/system/etc/init.qcom.radio_links.sh \
+    $(LOCAL_PATH)/configs/init.qcom.sdio.sh:/system/etc/init.qcom.sdio.sh \
+    $(LOCAL_PATH)/configs/init.qcom.wifi.sh:/system/etc/init.qcom.wifi.sh
 
 # HTC BT audio config
 PRODUCT_COPY_FILES += device/htc/totemc2/configs/AudioBTID.csv:system/etc/AudioBTID.csv
@@ -38,6 +51,22 @@ PRODUCT_COPY_FILES += device/htc/totemc2/configs/AudioBTID.csv:system/etc/AudioB
 #endif
 #PRODUCT_COPY_FILES += \
 #    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm8930
+
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8930
+
+# Recovery
+PRODUCT_PACKAGES += \
+    init.recovery.qcom.rc \
+    choice_fn \
+    power_test \
+    offmode_charging \
+    detect_key
 
 # wifi config
 PRODUCT_COPY_FILES += \
@@ -117,6 +146,18 @@ PRODUCT_COPY_FILES += \
     device/htc/totemc2/firmware/q6.b06:/system/etc/firmware/q6.b06 \
     device/htc/totemc2/firmware/q6.mdt:/system/etc/firmware/q6.mdt
 
+# Audio config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+
+# Thermal config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.conf
+
+# GPS config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
+
 # Recovery
 PRODUCT_COPY_FILES += \
     device/htc/totemc2/rootdir/etc/fstab.qcom:recovery/root/fstab.qcom
@@ -130,7 +171,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     ro.com.google.locationfeatures=1 \
-    dalvik.vm.dexopt-flags=m=y
+    dalvik.vm.dexopt-flags=m=y \
+    persist.gps.qmienabled=true \
+    ro.baseband.arch=msm \
+    ro.telephony.ril_class=HTCQualcommRIL \
+    ro.telephony.ril.v3=skipradiooff
 
 # We have enough space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

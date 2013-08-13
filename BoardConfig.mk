@@ -25,25 +25,53 @@
 # against the traditional rules of inheritance).
 
 # inherit from common msm8960
--include device/htc/s4-common/BoardConfigCommon.mk
+-include device/htc/msm8960-common/BoardConfigCommon.mk
+
+# Release Tools (commented out for now)
+# TARGET_RELEASETOOLS_EXTENSIONS := device/htc/totemc2
 
 # Require bootloader version (commented out for now)
 # TARGET_BOARD_INFO_FILE ?= device/htc/totemc2/board-info.txt
+
+# Include Path
+TARGET_SPECIFIC_HEADER_PATH := device/htc/totemc2/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := totemc2
 
 # Kernel
-BOARD_MKBOOTIMG_ARGS := 0x81808000
-
+BOARD_KERNEL_BASE := 0x80400000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
+TARGET_KERNEL_SOURCE := kernel/htc/msm8960
 TARGET_KERNEL_CONFIG := tc2_defconfig
+
+# Audio
+BOARD_USES_FLUENCE_INCALL := true
+BOARD_USES_SEPERATED_AUDIO_INPUT := true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+# Camera
+USE_CAMERA_STUB := false
+BOARD_NEEDS_MEMORYHEAPPMEM := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_CAMERA_ABI_HACK
+COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
+COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
+COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
+
+# GPS
+BOARD_HAVE_NEW_QC_GPS := true
 
 # Use libril in the device tree
 BOARD_PROVIDES_LIBRIL := true
 
+
+
 # Wifi related defines
 WIFI_BAND                        := 802_11_ABG
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
@@ -53,6 +81,9 @@ WIFI_DRIVER_FW_PATH_STA          := "/system/etc/firmware/fw_bcm4334.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/fw_bcm4334_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4334_p2p.bin"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_MODULE_NAME          := bcmdhd
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/bcmdhd.ko"
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
 # cat /proc/emmc
 #dev:        size     erasesize name
@@ -91,6 +122,8 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 # Recovery
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/totemc2/recovery/kernel
 TARGET_RECOVERY_FSTAB := device/htc/totemc2/rootdir/etc/fstab.qcom
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 
 # TWRP
 DEVICE_RESOLUTION := 540x960
