@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ $(call inherit-product, device/htc/s4-common/s4.mk)
 DEVICE_PACKAGE_OVERLAYS += device/htc/totemc2/overlay
 
 # Boot ramdisk setup
-PRODUCT_COPY_FILES += \
+PRODUCT_PACKAGES += \
     fstab.qcom \
     init.target.rc \
     remount.qcom
@@ -30,9 +30,17 @@ PRODUCT_COPY_FILES += \
 # HTC BT audio config
 PRODUCT_COPY_FILES += device/htc/totemc2/configs/AudioBTID.csv:system/etc/AudioBTID.csv
 
+# NFCEE access control
+#ifeq ($(TARGET_BUILD_VARIANT),user)
+#    NFCEE_ACCESS_PATH := device/htc/totemc2/configs/nfcee_access.xml
+#else
+#    NFCEE_ACCESS_PATH := device/htc/totemc2/configs/nfcee_access_debug.xml
+#endif
+#PRODUCT_COPY_FILES += \
+#    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
 # wifi config
 PRODUCT_COPY_FILES += \
-    device/htc/totemc2/configs/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf \
     device/htc/totemc2/firmware/fw_bcm4334.bin:/system/etc/firmware/fw_bcm4334.bin \
     device/htc/totemc2/firmware/fw_bcm4334_apsta.bin:/system/etc/firmware/fw_bcm4334_apsta.bin \
     device/htc/totemc2/firmware/fw_bcm4334_p2p.bin:/system/etc/firmware/fw_bcm4334_p2p.bin \

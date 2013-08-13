@@ -34,7 +34,7 @@
 TARGET_BOOTLOADER_BOARD_NAME := totemc2
 
 # Kernel
-BOARD_FORCE_RAMDISK_ADDRESS := 0x81808000
+BOARD_MKBOOTIMG_ARGS := 0x81808000
 
 TARGET_KERNEL_CONFIG := tc2_defconfig
 
@@ -90,7 +90,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 
 # Recovery
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/totemc2/recovery/kernel
-#TARGET_RECOVERY_FSTAB := device/htc/totemc2/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/htc/totemc2/rootdir/etc/fstab.qcom
 
 # TWRP
 DEVICE_RESOLUTION := 540x960
