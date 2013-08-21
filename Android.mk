@@ -16,6 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),totemc2)
+ifeq ($(TARGET_DEVICE),mystul)
     include $(call first-makefiles-under,$(LOCAL_PATH))
 endif

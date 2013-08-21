@@ -8,17 +8,10 @@ cd /firmware_radio
 
 # Check chip version
 case `cat /sys/devices/system/soc/soc0/version 2>/dev/null` in
-	"1.1")
+	*)
 		for file in modem_f1.* ; do
 			newname=modem_fw.${file##*.}
-			ln -s /firmware_radio/$file /system/etc/firmware/$newname 2>/dev/null
-		done
-		;;
-
-	*)
-		for file in modem_f2.* ; do
-			newname=modem_fw.${file##*.}
-			ln -s /firmware_radio/$file /system/etc/firmware/$newname 2>/dev/null
+			ln -s /firmware_radio/$file /vendor/firmware/$newname 2>/dev/null
 		done
 esac
 
@@ -26,7 +19,7 @@ esac
 case `ls modem.mdt 2>/dev/null` in
 	modem.mdt)
 		for imgfile in modem*; do
-			ln -s /firmware_radio/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+			ln -s /firmware_radio/$imgfile /vendor/firmware/$imgfile 2>/dev/null
 		done
 		;;
 	*)

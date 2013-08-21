@@ -1,5 +1,5 @@
 VENDOR=htc
-DEVICE=totemc2
+DEVICE=mystul
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 

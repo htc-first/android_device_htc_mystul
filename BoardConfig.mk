@@ -28,16 +28,16 @@
 -include device/htc/msm8960-common/BoardConfigCommon.mk
 
 # Release Tools (commented out for now)
-# TARGET_RELEASETOOLS_EXTENSIONS := device/htc/totemc2
+# TARGET_RELEASETOOLS_EXTENSIONS := device/htc/mystul
 
 # Require bootloader version (commented out for now)
-# TARGET_BOARD_INFO_FILE ?= device/htc/totemc2/board-info.txt
+# TARGET_BOARD_INFO_FILE ?= device/htc/mystul/board-info.txt
 
 # Include Path
-TARGET_SPECIFIC_HEADER_PATH := device/htc/totemc2/include
+TARGET_SPECIFIC_HEADER_PATH := device/htc/mystul/include
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := totemc2
+TARGET_BOOTLOADER_BOARD_NAME := mystul
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80400000
@@ -45,7 +45,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_SOURCE := kernel/htc/msm8960
-TARGET_KERNEL_CONFIG := tc2_defconfig
+TARGET_KERNEL_CONFIG := operaul_defconfig
 
 # Audio
 BOARD_USES_FLUENCE_INCALL := true
@@ -120,8 +120,8 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
 # Recovery
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/totemc2/recovery/kernel
-TARGET_RECOVERY_FSTAB := device/htc/totemc2/rootdir/etc/fstab.qcom
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/mystul/recovery/kernel
+TARGET_RECOVERY_FSTAB := device/htc/mystul/rootdir/etc/fstab.qcom
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 

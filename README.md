@@ -1,3 +1,3 @@
-android_device_htc_totemc2
+android_device_htc_mystul
 ========================
-Android device tree for HTC TotemC2 (One VX)
+Android device tree for HTC MystUL (First)

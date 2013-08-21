@@ -8,7 +8,7 @@ cd /firmware_q6
 case `ls q6.mdt 2>/dev/null` in
 	q6.mdt)
 		for imgfile in q6*; do
-			ln -s /firmware_q6/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+			ln -s /firmware_q6/$imgfile /vendor/firmware/$imgfile 2>/dev/null
 		done
 		;;
 	*)
