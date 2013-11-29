@@ -24,8 +24,8 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# inherit from common msm8960
--include device/htc/msm8960-common/BoardConfigCommon.mk
+# inherit from common msm8930
+-include device/htc/msm8930-common/BoardConfigCommon.mk
 
 # Release Tools (commented out for now)
 # TARGET_RELEASETOOLS_EXTENSIONS := device/htc/mystul
