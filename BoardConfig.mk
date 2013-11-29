@@ -68,7 +68,8 @@ BOARD_HAVE_NEW_QC_GPS := true
 # Use libril in the device tree
 BOARD_PROVIDES_LIBRIL := true
 
-
+# Processor
+TARGET_CPU_VARIANT := krait
 
 # Wifi related defines
 WIFI_BAND                        := 802_11_ABG
