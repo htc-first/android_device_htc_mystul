@@ -15,8 +15,8 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/htc/mystul/device_mystul.mk)
 
 # Device naming
-PRODUCT_DEVICE := operaul
-PRODUCT_NAME := cm_operaul
+PRODUCT_DEVICE := mystul
+PRODUCT_NAME := cm_mystul
 PRODUCT_BRAND := htc
 PRODUCT_MODEL := First
 PRODUCT_MANUFACTURER := HTC

@@ -24,8 +24,8 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-# inherit from common msm8930
--include device/htc/msm8930-common/BoardConfigCommon.mk
+# inherit from common msm8930aa
+-include device/htc/msm8930aa-common/BoardConfigCommon.mk
 
 # Release Tools (commented out for now)
 # TARGET_RELEASETOOLS_EXTENSIONS := device/htc/mystul
@@ -44,8 +44,8 @@ BOARD_KERNEL_BASE := 0x80400000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
-TARGET_KERNEL_SOURCE := kernel/htc/msm8960
-TARGET_KERNEL_CONFIG := operaul_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/msm8930aa
+TARGET_KERNEL_CONFIG := cyanogenmod_mystul_defconfig
 
 # Audio
 BOARD_USES_FLUENCE_INCALL := true
@@ -67,9 +67,6 @@ BOARD_HAVE_NEW_QC_GPS := true
 
 # Use libril in the device tree
 BOARD_PROVIDES_LIBRIL := true
-
-# Processor
-TARGET_CPU_VARIANT := krait
 
 # Wifi related defines
 WIFI_BAND                        := 802_11_ABG

@@ -17,7 +17,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # common 8960 configs
-$(call inherit-product, device/htc/msm8930-common/msm8930.mk)
+$(call inherit-product, device/htc/msm8930aa-common/msm8930aa.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/mystul/overlay
 
@@ -53,11 +53,11 @@ PRODUCT_COPY_FILES += device/htc/mystul/configs/AudioBTID.csv:system/etc/AudioBT
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8930
+    camera.msm8930aa
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8930
+    gps.msm8930aa
 
 # Recovery
 PRODUCT_PACKAGES += \
