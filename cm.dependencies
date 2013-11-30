@@ -5,7 +5,7 @@
   },
   {
     "repository": "android_vendor_htc_mystul",
-    "target_path": "device/htc/mystul"
+    "target_path": "vendor/htc/mystul"
   },
   {
     "repository": "android_kernel_htc_msm8930aa",

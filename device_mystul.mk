@@ -197,5 +197,5 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 PRODUCT_DEVICE := mystul
 PRODUCT_NAME := mystul
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := First 
+PRODUCT_MODEL := First
 PRODUCT_MANUFACTURER := HTC
