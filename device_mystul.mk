@@ -92,7 +92,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/mystul/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl \
     device/htc/mystul/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/htc/mystul/keylayout/opera-keypad.kl:system/usr/keylayout/opera-keypad.kl \
+    device/htc/mystul/keylayout/mystul-keypad.kl:system/usr/keylayout/mystul-keypad.kl \
     device/htc/mystul/keylayout/projector-Keypad.kl:system/usr/keylayout/projector-Keypad.kl
 
 # Input device config
